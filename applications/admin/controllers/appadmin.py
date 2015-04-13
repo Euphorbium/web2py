@@ -5,6 +5,7 @@
 # ###########################################################
 
 import os
+import io
 import socket
 import datetime
 import copy
@@ -284,7 +285,7 @@ def select():
     if formcsv and formcsv.process().accepted:
         try:
             import_csv(db[request.vars.table],
-                       request.vars.csvfile.file)
+                       io.StringIO(unicode(request.vars.csvfile.file.read())), newline=None)
             response.flash = T('data uploaded')
         except Exception, e:
             response.flash = DIV(T('unable to parse csv file'), PRE(str(e)))
