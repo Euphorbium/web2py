@@ -87,11 +87,11 @@ class OAuthAccount(object):
                                username = user['id'])
 
 
-               auth.settings.actions_disabled=['register',
+           auth.settings.actions_disabled=['register',
                    'change_password','request_reset_password','profile']
-               auth.settings.login_form=FaceBookAccount()
+           auth.settings.login_form=FaceBookAccount()
 
-Any optional arg in the constructor will be passed asis to remote
+Any optional arg in the constructor will be passed as is to remote
 server for requests.  It can be used for the optional"scope" parameters for Facebook.
 
     """
